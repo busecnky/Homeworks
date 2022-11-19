@@ -146,7 +146,7 @@ public class Televizyon {
 	
 	public void kanalArttır() {
 		int maxKanal = kanallar.size();
-		if (tvKuruluMu==true && tvAcikMi==true && aktifKanal < maxKanal) {
+		if (tvKuruluMu==true && tvAcikMi==true && aktifKanal != maxKanal) {
 			aktifKanal++;
 			System.out.println("Kanal No: " + aktifKanal + " Kanal İsmi: " + kanallar.get(aktifKanal-1).getKanalAdi());
 			
@@ -155,7 +155,7 @@ public class Televizyon {
 			System.out.println("TV nizi açmanız gerekiyor.");
 		}else if(tvKuruluMu==false) {
 			System.out.println("Önce TV'nizi kurmanız gerekiyor");
-		}else if (aktifKanal >= maxKanal) {
+		}else if (aktifKanal == maxKanal) {
 			System.out.println("Maximum kanaldasınız. Kanal No: " + (aktifKanal));
 		}
 	}
@@ -164,8 +164,9 @@ public class Televizyon {
 	public void kanalAzalt() {
 		int minKanal =1;
 		if (tvKuruluMu==true && tvAcikMi==true && aktifKanal != minKanal) {
-			System.out.println("Kanal No: " + aktifKanal + " Kanal İsmi: " + kanallar.get(aktifKanal).getKanalAdi());
 			aktifKanal--;
+			System.out.println("Kanal No: " + aktifKanal + " Kanal İsmi: " + kanallar.get(aktifKanal-1).getKanalAdi());
+			
 		}else if (tvKuruluMu==true && tvAcikMi==false) {
 			System.out.println("TV nizi açmanız gerekiyor.");
 		}else if(tvKuruluMu==false) {
